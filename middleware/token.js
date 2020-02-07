@@ -2,7 +2,9 @@ const jwt = require('jsonwebtoken');
 const config = require('../config');
 
 exports.verifyToken = function(req, res, next) {
-  const token = req.headers.authorization;
+ // const token = req.headers.authorization;
+  const token = req.cookies.token;
+  
   if (!token) return res.status(401).send({ auth: false, message: 'No token provided.' });
 
   jwt.verify(token, config.secret, async function (err, decoded) {

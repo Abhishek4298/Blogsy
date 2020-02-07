@@ -24,6 +24,8 @@ exports.getPost =  async function (req, res) {
   } catch (err) {
       res.status(500).send(err);
   }
-  
 }
 
+exports.getDashboard = function (req, res) {
+  res.render('dashboard', {name:req.name});
+}
