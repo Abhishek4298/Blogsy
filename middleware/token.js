@@ -10,8 +10,6 @@ exports.verifyToken = function(req, res, next) {
     else {
       req.id = decoded.id;
       req.role = decoded.role;
-      /* res.locals.custom = true;
-      res.locals.id = decoded.id */
       next();
     }
   })

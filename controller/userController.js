@@ -9,6 +9,11 @@ exports.register = async function (req, res) {
   });
 }
 
+exports.getLogin = function(req,res)
+{
+  res.render('login');
+}
+
 exports.login = async function(req, res) {
   User.findOne({ email: req.body.email, password: req.body.password }, function (err, User) {
   if (err) return res.status(500).send('Error on the server.');
