@@ -4,9 +4,19 @@ const config = require('../config');
 
 exports.register = async function (req, res) {
   const createUser = new User(req.body);
-  await createUser.save(function (err, User) {
-    res.status(200).send({ status: true, token: createUser });
-  });
+  console.log('data',createUser)
+
+  await createUser.save();
+  //res.status(200).send({ status: true, token: createUser });
+
+  const token = jwt.sign({ id: createUser.id, role: createUser.role, name: createUser.name }, config.secret);
+  res.cookie('token',token, {httpOnly: true });
+  res.redirect('/dash');
+}
+
+exports.getRegister = function(req,res)
+{
+  res.render('register');
 }
 
 exports.getLogin = function(req,res)
