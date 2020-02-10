@@ -20,15 +20,15 @@ git clone https://github.com/Abhishek4298/Blogsy.git
 npm i 
 ```
 
-## create .env file
+## configure file .env
  'secret': "abs21@ks"
+ 
 
 ## mongod service connection
+```node
 service mongod start
-
+```
 # start connection with server
 node index.js
 
-
-http://localhost:9000/login
 

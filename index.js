@@ -1,6 +1,6 @@
 const express = require('express');
 const mongoose = require('mongoose');
-const body = require('body-parser');
+const bodyParser = require('body-parser');
 let ejs = require('ejs');
 const path = require('path')
 let cookieParser = require('cookie-parser'); 
@@ -18,11 +18,8 @@ app.set('views', path.join(__dirname, 'views'));
 app.set('view engine', 'ejs');
 
 app.use(cookieParser());
-app.use(bodyParser.text());
-app.use(bodyParser.urlencoded(
-{
-  extended : false
-}));
+app.use(bodyParser.urlencoded({ extended: true }));
+app.use(bodyParser.json({ limit: '50mb' }));
 app.use(router);
 
 app.listen(9000,() => {

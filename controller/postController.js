@@ -1,5 +1,10 @@
 const postModel = require('../model/postModel');
 
+exports.getPost = async function(req,res)
+{
+  res.render('addPost');
+}
+
 exports.addPost = async function (req,res) {
   const createPost = new postModel(req.body);
   createPost.userid = req.id;
