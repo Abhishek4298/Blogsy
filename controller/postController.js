@@ -1,6 +1,6 @@
 const postModel = require('../model/postModel');
 
-exports.getPost = async function(req,res)
+exports.getaddPost = async function(req,res)
 {
   res.render('addPost');
 }

@@ -16,6 +16,6 @@ router.get('/dash', middleware.verifyToken, postController.getDashboard);
 
 router.post('/post',  middleware.verifyToken, postController.addPost);
 
-router.get('/post', middleware.verifyToken, postController.getPost);
+router.get('/post', middleware.verifyToken, postController.getaddPost);
 
 module.exports =  router;
