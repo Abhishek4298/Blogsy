@@ -8,9 +8,6 @@ Admin can view posts of all the users.
 node version : v12.14.1 
 mongoDB shell version : v4.2.2
 
-## Cloning the project
-git clone https://github.com/Abhishek4298/Blogsy.git
-
 ## for package install
 ```node
 npm i 
