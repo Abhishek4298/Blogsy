@@ -1,5 +1,5 @@
 const jwt = require('jsonwebtoken');
-const config = require('../config');
+const config = require('../config');  
 
 exports.verifyToken = function(req, res, next) {
   const token = req.cookies.token;
@@ -11,6 +11,8 @@ exports.verifyToken = function(req, res, next) {
     else {
       req.id = decoded.id;
       req.role = decoded.role;
+      req.name = decoded.name;
+
       next();
     }
   })

@@ -1,20 +1,24 @@
 <html>
-  
-<form action="/login" method="post">
+<head>
+  <title>Login</title>
+  <link rel="stylesheet" action="post" href="../stylesheet/nav.css" >
 
-<center>
+</head>
+<body>
+  <center>
+<div class="center-item card">
+<form action="/login" method="post" >
   <h2>Login User</h2><br>
-
-  <div>
-    <label for="email"><b>Email id</b></label>
+  
+    <label><b>Email id</b></label>
     <input type="email" placeholder="Enter email" name="uemail" required>
     <br><br> 
-
-    <label for="psw"><b>Password</b></label>
+    <label ><b>Password</b></label>
     <input type="password" placeholder="Enter Password" name="psw" required>
     <br><br><br>
     <button type="submit">Login</button>
-  </div>
-</center>
 </form>
+</div>
+</center>
+</body>
 </html>

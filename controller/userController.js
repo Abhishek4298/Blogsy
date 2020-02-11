@@ -29,8 +29,13 @@ exports.login = async function(req, res) {
   ) {
     if (err) return res.status(500).send("Error on the server.");
     if (!User) return res.status(404).send("No user found.");
-    const token = jwt.sign({ id: User.id, role: User.role }, config.secret);
+    const token = jwt.sign({ id: User.id, role: User.role, name: User.name }, config.secret);
     res.cookie("token", token);
     res.redirect("/dash");
   });
 };
+
+exports.logout = async function(req,res)
+{
+  res.clearCookie("token").redirect("/login")
+}

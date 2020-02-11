@@ -1,0 +1,23 @@
+<html>
+<head>
+  <title>View Post</title>
+  <link rel="stylesheet" action="post" href="../stylesheet/nav.css" >
+
+</head>
+<body>
+  <div><%- include('navbar.ejs') %></div> 
+
+  <h3>View Post</h3>
+  <hr>
+    <div>
+      <% for(let i = 0; i < post.length; i++) { %>
+        <ul>
+          <li> <h1>Title: <%= post[i].title %> </h1></li> 
+          <li> <%= post[i].content %> </li>
+        </ul>
+        <hr>
+      <% } %>
+    </div>
+    <a href="/post">want to Add post?</a>
+</body>
+</html>

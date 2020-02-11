@@ -1,12 +1,22 @@
 <html>
 <head>
-<title></title>
+<title>Add Post</title>
+<link rel="stylesheet" action="post" href="../stylesheet/nav.css" >
 </head>
 <body>
+  <div><%- include('navbar.ejs') %></div> 
+ <div class="center-item card">
   <form method="POST" action="/post">
     <h2> Add you post here</h2>
     <input type="text" class="input-text" name="title" placeholder="Enter title" /><br><br>
     <textarea name="content" rows="10" cols="50" placeholder="Enter content"></textarea><br><br>
-    <input type="submit"> 
+    <input type="submit" value="ADD"> <br><br>
+    <a href="/viewPost">want to view your post?</a>
+
+  </form>
+
+  </div>
+
 </body>
+
 </html>

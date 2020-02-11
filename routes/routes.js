@@ -16,6 +16,10 @@ router.get('/dash', middleware.verifyToken, postController.getDashboard);
 
 router.post('/post',  middleware.verifyToken, postController.addPost);
 
+router.get('/viewPost',  middleware.verifyToken, postController.getPost);
+
 router.get('/post', middleware.verifyToken, postController.getaddPost);
+
+router.get('/logout',userController.logout);
 
 module.exports =  router;
