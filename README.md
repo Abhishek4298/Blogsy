@@ -26,6 +26,8 @@ mongodb://127.0.0.1/database
 service mongod start
 ```
 # start connection with server
+```node
 node index.js
+```
 
 
