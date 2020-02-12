@@ -5,6 +5,7 @@
 
 </head>
 <body>
+<div><%- include('navbar.ejs') %></div> 
 <div class="center-item card">
 <form action="/login" method="post" >
   <h2>Login User</h2><br>
@@ -17,6 +18,9 @@
     <br><br><br>
     <button type="submit">Login</button>
 </form>
+<%if(message) {%>
+<h1><%= message%></h1>
+  <%}%>
 </div>
 </body>
 </html>
