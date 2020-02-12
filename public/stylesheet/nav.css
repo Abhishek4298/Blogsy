@@ -1,10 +1,12 @@
 body {
 margin: 0;
-overflow: hidden;
 }
 .topnav {
   background-color: #333;
-  overflow: hidden;
+  overflow: hidden; 
+  top: 0;
+  width: 100%;
+
 }
 
 /* Style the links inside the navigation bar */

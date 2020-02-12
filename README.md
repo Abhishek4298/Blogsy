@@ -5,26 +5,31 @@ Admin can view posts of all the users.
 
 ## Requirement
 
-node version : v12.14.1 
+node version : v12.14.1
 mongoDB shell version : v4.2.2
 
 ## for package install
+
 ```node
-npm i 
+npm i
 ```
+
 ## configure file .env
+
 'secret': "abs21@ks"
- 
+
 ## mongo connection url database
+
 mongodb://127.0.0.1/database
 
 ## mongod service connection
+
 ```node
 service mongod start
 ```
+
 # start connection with server
+
 ```node
 node index.js
 ```
-
-
