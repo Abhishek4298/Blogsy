@@ -1,10 +1,10 @@
 const express = require('express');
 const mongoose = require('mongoose');
 const bodyParser = require('body-parser');
-let ejs = require('ejs');
 const path = require('path')
-let cookieParser = require('cookie-parser'); 
-
+const cookieParser = require('cookie-parser'); 
+let session = require('express-session');
+const flash = require('req-flash');
 
 const app = express();
 
@@ -24,8 +24,14 @@ app.set('views', path.join(__dirname, 'views'));
 app.set('view engine', 'ejs');
 
 app.use(cookieParser());
+app.use(session({
+  secret: 'Hello session secret key',
+  resave: false,
+  saveUninitialized: true
+  }));
 app.use(bodyParser.urlencoded({ extended: false }));
 app.use(bodyParser.json());
+app.use(flash());
 app.use(router);
 
 app.listen(9000,() => {
