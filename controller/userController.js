@@ -19,16 +19,17 @@ exports.register = async (req, res) => {
 };
 
 exports.getLogin = function(req, res) {
-  res.render("login");
+  console.log('in login')
+  res.render("login",{message: req.flash('error')}); 
 };
 
 exports.login = async function(req, res) {
-  User.findOne({ email: req.body.uemail, password: req.body.psw }, function(
-    err,
-    User
-  ) {
+  User.findOne({ email: req.body.uemail, password: req.body.psw }, function(err,User) {
     if (err) return res.status(500).send("Error on the server.");
-    if (!User) return res.status(404).send("No user found.");
+    if (!User) {
+      req.flash('error','User does not exists!');
+      return res.redirect('/login');
+    } 
     const token = jwt.sign({ id: User.id, role: User.role, name: User.name }, config.secret);
     res.cookie("token", token);
     res.redirect("/dash");
