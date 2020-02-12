@@ -25,7 +25,7 @@ app.set('view engine', 'ejs');
 
 app.use(cookieParser());
 app.use(session({
-  secret: 'Hello session secret key',
+  secret: 'Hello session secret key', 
   resave: false,
   saveUninitialized: true
   }));
@@ -34,6 +34,6 @@ app.use(bodyParser.json());
 app.use(flash());
 app.use(router);
 
-app.listen(9000,() => {
+app.listen(8000,() => {
   console.log("server Running");
 });
