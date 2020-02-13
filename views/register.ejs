@@ -8,20 +8,19 @@
 </head>
 
 <body>
-    <div><%- include('navbar.ejs') %></div>
 
     <div class="center-item card">
         <form name="registration" method="post" action="/register">
-            <div class="form-head"><b>REGISTRATION FORM</b>
-                <hr>
-            </div><br><br><br>
-            <input type="text" class="input-text" name="id" placeholder="Enter your id" /><br><br>
-            <input type="text" class="input-text" name="name" placeholder="Emter your name" /><br><br>
-            <input type="email" class="input-text" name="email" placeholder="Email Id" /><br><br>
-            <input type="password" class="input-text" name="password" placeholder="Enter your password" /><br><br>
-            <input type="text" class="input-text" name="role" placeholder="Enter your role" /><br><br>
-            <input type="submit" class="div-btn" name="submit" value="REGISTER" /><br><br>
-            <a href="/login">want to login?</a>
+            <div class="form-head"><b><h2>REGISTRATION FORM</h2></b>
+                
+            
+            <input type="text" class="input-text" name="id" placeholder="Enter your id" required/><br><br>
+            <input type="text" class="input-text" name="name" placeholder="Emter your name" required/><br><br>
+            <input type="email" class="input-text" name="email" placeholder="Email Id" required/><br><br>
+            <input type="password" class="input-text" name="password" placeholder="Enter your password" required/><br><br>
+            <input type="text" class="input-text" name="role" placeholder="Enter your role" required/><br><br>
+            <input type="submit" class="div-btn okay" name="submit" value="REGISTER" required/><br><br>
+            <a href="/login">Already user?</a>
         </form>
     </div>
 </body>

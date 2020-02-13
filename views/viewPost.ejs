@@ -1,22 +1,50 @@
 <html>
   <head>
     <title>View Post</title>
+    <link
+      rel="stylesheet"
+      href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css"
+      integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh"
+      crossorigin="anonymous"/>
     <link rel="stylesheet" action="post" href="../stylesheet/nav.css" />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.10.2/css/all.min.css"/>
   </head>
   <body>
     <div><%- include('navbar.ejs') %></div>
-
-    <h3>View Post</h3>
-    <hr />
-    <div>
-      <% for(let i = 0; i < post.length; i++) { %>
-      <ul>
-        <li><h1>Title: <%= post[i].title %></h1></li>
-        <li><%= post[i].content %></li>
-      </ul>
+    <div class="container">
+      <h3>View Post</h3>
       <hr />
-      <% } %>
+
+      <div>
+        <% for(let i = 0; i < post.length; i++) { %>
+        <div>
+          <h2>Title: <%= post[i].title %></h2>
+          <br />
+          <%= post[i].content %><br />
+          <button class="borederRemove">
+            <i class="fas fa-heart heartColor"></i>
+          </button>
+          <hr />
+        </div>
+
+        <% } %>
+      </div>
+
+      <!-- <div>
+        <% for(let i = 0; i < post.length; i++) { %>
+        <ul>
+          <li><h1>Title: <%= post[i].title %></h1></li>
+          <li><%= post[i].content %></li>
+          <button class = "borederRemove" ><i class="fas fa-heart heartColor"></i></button>
+        </ul>
+        <hr />
+
+        <% } %>
+        
+      </div> -->
+      <a href="/post">want to Add post?</a>
     </div>
-    <a href="/post">want to Add post?</a>
   </body>
 </html>

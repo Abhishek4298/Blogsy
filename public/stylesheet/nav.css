@@ -1,6 +1,6 @@
-body {
+/* body {
 margin: 0;
-}
+} */
 .topnav {
   background-color: #333;
   overflow: hidden; 
@@ -52,4 +52,28 @@ margin: 0;
   border: 2px solid black;
   border-radius: 2px;
   box-shadow: 2px 2px black;
+
+}
+.okay
+{
+  color: green;
+  border-color: black;
+  width: 100px;
+}
+
+
+/*for color heart*/
+.heartColor
+{
+  color:white;
+}
+
+.heartColor:hover {
+  color:red;
+}
+
+
+.borederRemove {
+border: none;
+background-color: none;
 }

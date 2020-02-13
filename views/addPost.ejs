@@ -1,16 +1,23 @@
 <html>
 <head>
 <title>Add Post</title>
+<link
+rel="stylesheet"
+href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css"
+integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh"
+crossorigin="anonymous"
+/>
 <link rel="stylesheet" action="post" href="../stylesheet/nav.css" >
 </head>
 <body>
   <div><%- include('navbar.ejs') %></div> 
  <div class="center-item card">
+  <h3> Add you post here</h3><br><br>
+
   <form method="POST" action="/post">
-    <h2> Add you post here</h2>
     <input type="text" class="input-text" name="title" placeholder="Enter title" /><br><br>
     <textarea name="content" rows="10" cols="50" placeholder="Enter content"></textarea><br><br>
-    <input type="submit" value="ADD"> <br><br>
+    <input type="submit" value="ADD"><br>
     <a href="/viewPost">want to view your post?</a>
 
   </form>

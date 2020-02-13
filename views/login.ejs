@@ -1,26 +1,35 @@
 <html>
+
 <head>
   <title>Login</title>
-  <link rel="stylesheet" action="post" href="../stylesheet/nav.css" >
-
+  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css"
+    integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous" />
+  <link rel="stylesheet" action="post" href="../stylesheet/nav.css" />
 </head>
+
 <body>
-<div><%- include('navbar.ejs') %></div> 
-<div class="center-item card">
-<form action="/login" method="post" >
-  <h2>Login User</h2><br>
-  
-    <label><b>Email id</b></label>
-    <input type="email" placeholder="Enter email" name="uemail" required>
-    <br><br> 
-    <label ><b>Password</b></label>
-    <input type="password" placeholder="Enter Password" name="psw" required>
-    <br><br><br>
-    <button type="submit">Login</button>
-</form>
-<%if(message) {%>
-<h1><%= message%></h1>
+  <%if(message) {%>
+  <div class="alert alert-danger" role="alert">
+    <h1><%= message%></h1>
+  </div>
   <%}%>
-</div>
-</body>
+
+    <div class="center-item card">
+      <form action="/login" method="post">
+        <h2>Login User</h2>
+        <br />
+
+        <label><b>Email id</b></label>
+        <input type="email" placeholder="Enter email" name="uemail" required />
+        <br /><br />
+        <label><b>Password</b></label>
+        <input type="password" placeholder="Enter Password" name="psw"required/>
+        <br /><br /><br />
+        <button class="okay" type="submit">Login</button><br><br> 
+        <a href="/register">Not having an account?</a>
+
+      </form>
+    </div>
+  </body>
 </html>
+

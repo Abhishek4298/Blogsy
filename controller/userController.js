@@ -19,7 +19,6 @@ exports.register = async (req, res) => {
 };
 
 exports.getLogin = function(req, res) {
-  console.log("in login");
   res.render("login", { message: req.flash("error") });
 };
 

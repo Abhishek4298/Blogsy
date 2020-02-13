@@ -4,8 +4,12 @@ const config = require('../config');
 exports.verifyToken = function(req, res, next) {
   const token = req.cookies.token;
   
-  if (!token) return res.status(401).send({ auth: false, message: 'No token provided.' });
-
+  // if (!token) return res.status(401).send({ auth: false, message: 'No token provided.' });
+  if (!token)
+  {
+    req.flash("error", "Must have to login in the system");
+    return res.redirect("/login");
+  }
 
   jwt.verify(token, config.secret, async function (err, decoded) {
     if (err) return res.status(500).send({ auth: false, message: 'Failed to authenticate token.' });
