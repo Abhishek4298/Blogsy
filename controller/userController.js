@@ -29,7 +29,7 @@ exports.login = async function(req, res) {
       req.flash("error", "User does not exists!");
       return res.redirect("/login");
     }
-    const token = jwt.sign(
+    const token = jwt.sign( 
       { id: User.id, role: User.role, name: User.name },
       config.secret
     );

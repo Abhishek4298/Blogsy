@@ -1,6 +1,6 @@
-/* body {
+body {
 margin: 0;
-} */
+} 
 .topnav {
   background-color: #333;
   overflow: hidden; 
@@ -60,16 +60,15 @@ margin: 0;
   border-color: black;
   width: 100px;
 }
-
-
+                                                                                                                
 /*for color heart*/
 .heartColor
 {
   color:white;
-}
+} 
 
 .heartColor:hover {
-  color:red;
+  color:pink;
 }
 
 

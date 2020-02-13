@@ -10,7 +10,15 @@
     <link
       rel="stylesheet"
       href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.10.2/css/all.min.css"/>
+
+<script>
+  function myFunction() {
+    document.getElementById("go").style.color = "red";
+  }
+  </script>
   </head>
+
+  
   <body>
     <div><%- include('navbar.ejs') %></div>
     <div class="container">
@@ -23,8 +31,8 @@
           <h2>Title: <%= post[i].title %></h2>
           <br />
           <%= post[i].content %><br />
-          <button class="borederRemove">
-            <i class="fas fa-heart heartColor"></i>
+          <button class="borederRemove " onclick="myFunction()">
+            <i id="go" class="fas fa-heart heartColor"></i>
           </button>
           <hr />
         </div>
@@ -32,18 +40,6 @@
         <% } %>
       </div>
 
-      <!-- <div>
-        <% for(let i = 0; i < post.length; i++) { %>
-        <ul>
-          <li><h1>Title: <%= post[i].title %></h1></li>
-          <li><%= post[i].content %></li>
-          <button class = "borederRemove" ><i class="fas fa-heart heartColor"></i></button>
-        </ul>
-        <hr />
-
-        <% } %>
-        
-      </div> -->
       <a href="/post">want to Add post?</a>
     </div>
   </body>
