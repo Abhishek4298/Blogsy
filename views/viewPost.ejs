@@ -11,36 +11,58 @@
       rel="stylesheet"
       href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.10.2/css/all.min.css"/>
 
-<script>
-  function myFunction() {
-    document.getElementById("go").style.color = "red";
+<style>
+  .heart i.fa-heart {
+    color: #f44336;
+  } 
+  .heart{
+    animation: heart 0.5s linear; 
   }
-  </script>
-  </head>
+  @keyframes heart {
+  0%{
+    transform: rotate(0deg) scale(1.7);
+  }
+}
+</style>
+</head>
+<body>
+<%- include ('navbar.ejs') %>
+<br />
+<br>
+<br>
+<% if(post.length) { %>
+<div class="container">
+<% for(let i= 0; i < post.length; i++) {%>
+<div class="card" class="container-fluid">
+<h4 class="card-header"><%= post[i].title %></h4>
+<div class="card-body">
+<h5 class="card-title"> <%= post[i].content %></h5>
+<br>
+<a href="#" class="like " >
+<i class="fa fa-heart heartColor"
+ aria-hidden="true"></i>
+</a>
+</div>
+</div>
+</br>
+<% }%>
+</br>
+<% } else { %>
+<div class="box-container">
+<h1 style="text-align: center; padding-top:7%;">Sorry! No post available.</h1>
+<h5 style="text-align: center;">To publish new post <a href="/post">Click here..</a> </h5>
+</div>
+<% } %>
+</div>
 
-  
-  <body>
-    <div><%- include('navbar.ejs') %></div>
-    <div class="container">
-      <h3>View Post</h3>
-      <hr />
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+<script>
+$(document).ready(function(){
+$(".like").click(function(){
+$(this).toggleClass("heart")
+})
+})
+</script>
 
-      <div>
-        <% for(let i = 0; i < post.length; i++) { %>
-        <div>
-          <h2>Title: <%= post[i].title %></h2>
-          <br />
-          <%= post[i].content %><br />
-          <button class="borederRemove " onclick="myFunction()">
-            <i id="go" class="fas fa-heart heartColor"></i>
-          </button>
-          <hr />
-        </div>
-
-        <% } %>
-      </div>
-
-      <a href="/post">want to Add post?</a>
-    </div>
-  </body>
+</body>
 </html>

@@ -6,10 +6,10 @@ exports.getRegister = function(req, res) {
   res.render("register");
 };
 
-exports.register = async (req, res) => {
+exports.register = function(req, res) {
   try {
     const createUser = new User(req.body);
-    await createUser.save();
+    createUser.save();
     const token = jwt.sign(req.body, config.secret);
     res.cookie("token", token, { httpOnly: true });
     return res.redirect("/dash");
