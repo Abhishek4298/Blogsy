@@ -37,10 +37,11 @@
 <body>
 <%- include ('navbar.ejs') %>
 <br />
-
-<% if(post.length) { %>
+<br>
+<br>
 <div class="container">
-<% for(let i= 0; i < post.length; i++) {%>
+<% if(post.length) { 
+   for(let i= 0; i < post.length; i++) {%>
 <div class="card" class="container-fluid">
   <h4 class="card-header"><%= post[i].title %></h4>
 <div class="card-body">
@@ -49,21 +50,27 @@
 
 <form action="/like" method="POST">
   <input type="hidden" name="postid" value="<%= post[i]._id%>">
-  <% let flag = 0;like.some((ele) => {
-    flag = 1;
-    if(ele._id === like.postid) {%>
-      <button type="submit" name="like" value="1">
-        <i class="fa fa-heart likeheartColor" aria-hidden="true"></i>
-      </button>    
-     <%flag =0;} else {%>
-      <button type="submit" name="dislike" value="0">
-      <i class="fa fa-heart heartColor"  aria-hidden="true"></i>
-      </button>
-     <%}});%>
-     <button type="submit" name="dislike" value="0">
-      <i class="fa fa-heart heartColor" aria-hidden="true"></i>
-      </button>
+  <%if(like.length) { 
+              let flag =false; 
+              like.some((ele) => {
+                if(ele.postid == post[i]._id && ele.userid == user ) {
+                   flag=true;
+                } 
+              });
+              if(flag) { %>
+      <button type="submit" name="dislike" value="dislike">Dislike </button>  
+      
+     <%}
+     else { %>
+      <button type="submit" name="like" value="like">Like </button>
+     <%}
+    }
+    else {%>
+      <button type="submit" name="like" value="like">Like </button>
+   <% }%>
+    
 </div>
+
 </div>
 </form>
 </br>

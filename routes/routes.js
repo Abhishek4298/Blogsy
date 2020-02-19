@@ -4,8 +4,8 @@ const userController = require("../controller/userController");
 const postController = require("../controller/postController");
 const router = express.Router();
 
-
-// router.get("", middleware.verifyToken, postController.getDashboard);
+//Default URL : http://localhost:(postNumber)
+router.get("", middleware.verifyToken, postController.getDashboard);
 
 //hit the function when user hit the url
 router.get("/register", userController.getRegister);

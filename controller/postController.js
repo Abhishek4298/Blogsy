@@ -50,23 +50,23 @@ exports.getLikes = async function(req, res) {
   const createLike = new Like(req.body);
   createLike.userid = req.user.id;
   console.log("Create like", createLike);
-  // try {
-  //   if (req.body.like == 0) {
+  try {
+  if (req.body.like == 'like') {
   await createLike.save();
-  res.json(createLike);
-  // } else {
-  //     await Like.deleteOne({ postid: req.body.postid, userid: req.user.id });
-  //       const obj = {
-  //         postid: req.body.postid,
-  //         userid: req.user.id,
-  //         status: 'deleted'
-  //       }
-  //       res.json(obj);
-  //    }
-  // }
-  // catch (err) {
-  //   res.send(err);
-  // }
+  res.redirect('/viewPost');
+ } else {
+      await Like.deleteOne({ postid: req.body.postid, userid: req.user.id });
+        const obj = {
+          postid: req.body.postid,
+          userid: req.user.id,
+          status: 'deleted'
+        }
+        res.redirect('/viewPost');
+     }
+  }
+  catch (err) {
+    res.send(err);
+  }
 };
 
 exports.getDashboard = function(req, res) {

@@ -5,7 +5,7 @@ const path = require("path");
 const cookieParser = require("cookie-parser");
 let session = require("express-session");
 const flash = require("req-flash");
-const port = 5000;
+const port = 7000;
 const app = express();
 
 const router = require("./routes/routes");
