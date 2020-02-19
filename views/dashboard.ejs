@@ -1,13 +1,19 @@
 <!DOCTYPE html>
 <html>
- <head>
-   <title>Dashboard</title>
- </head>
- <body>
+
+<head>
+  <title>Home</title>
+  <link rel="stylesheet" href="../stylesheet/nav.css" type="text/css">
+
+</head>
+
+<body>
+  <div><%- include('navbar.ejs') %></div>
    <div>
-     <h1>
-       Successful
-     </h1>
-   </div>
- </body>
+    <h1>
+      welcome <%= name %>
+    </h1>
+  </div>
+</body>
+
 </html>

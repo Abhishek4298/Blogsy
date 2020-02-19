@@ -1,0 +1,12 @@
+<% let flag;like.some((ele) => {
+    flag = 0;
+    if(ele._id == like.postid && like.like == 1) {
+      flag=1;%>
+      <button type="submit" name="like" value="1">
+        <i class="fa fa-heart likeheartColor" aria-hidden="true"></i>
+      </button>    
+     <%flag =0;} else {%>
+      <button type="submit" name="dislike" value="0">
+      <i class="fa fa-heart heartColor" aria-hidden="true"></i>
+      </button>
+     <%}});%>

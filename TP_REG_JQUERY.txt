@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Registration Form</title>
+    <link rel="stylesheet" action="post" href="../stylesheet/nav.css">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
+    <style>
+        .error {
+            color: red;
+        }
+    </style>
+    <script>
+    $(document).ready(function() {
+    $('#registration_form').submit(function(e) {
+        e.preventDefault();
+        
+        let id = $('#uid').val();
+        let name = $('#uname').val();
+        let email = $('#uemail').val();
+        let password = $('#psw').val();
+        let role = $('#role').val();
+  
+        $(".error").remove();
+
+        if (name.length < 3) {
+            $('#uname').after('<span class="error">not valid empty or character less then 3</span>');
+        }
+        if (id.length < 1) {
+            $('#uid').after('<span class="error">This field is required</span>');
+        }
+        if (email.length < 1) {
+            $('#uemail').after('<span class="error">This field is required</span>');
+        } else {
+            
+            var regEx = /^[a-zA-Z0-9.!#$%&'*+/=?^_`{|}~-]+@[a-zA-Z0-9-]+(?:\.[a-zA-Z0-9-]+)*$/  
+            var validEmail = regEx.test(email);
+            if (!validEmail) {
+            $('#uemail').after('<span class="error">Enter a valid email</span>');
+            }
+        }
+        if (password.length < 8) {
+            $('#psw').after('<span class="error">Password must be at least 8 characters long</span>');
+        }
+        if(role.length<1)
+        {
+            $('#role').after('<span class="error">Field Required. </span>');
+
+        }
+});
+
+});
+    </script>
+</head>
+
+<body>
+    <div class="center-item card">
+        <form id="registration_form" method="post" action="/register">
+            <div class="form-head"><b><h2>REGISTRATION FORM</h2></b>
+            <input type="text" id="uid"  class="input-text" name="id" placeholder="Enter your id" /><br><br>
+            <input type="text" id="uname" class="input-text" name="name" placeholder="Enter your name" /><br><br>
+            <input type="email" id="uemail" class="input-text" name="email" placeholder="Enter Email Address"/><br><br>
+            <input type="password" id="psw" class="input-text" name="password" placeholder="Enter your password"/><br><br>
+            <input type="text" id="role" class="input-text" name="role" placeholder="Enter your role"/><br><br>
+            <button type="submit">REGISTER</button>
+            <a href="/login">Already user?</a>
+        </form>
+    </div>
+</body>
+
+</html>

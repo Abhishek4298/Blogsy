@@ -1,21 +1,41 @@
-const express = require('express');
-const middleware = require('../middleware/token')
-const userController = require('../controller/userController');
-const postController = require('../controller/postController');
+const express = require("express");
+const middleware = require("../middleware/token");
+const userController = require("../controller/userController");
+const postController = require("../controller/postController");
 const router = express.Router();
 
-router.get('/register',userController.getRegister);
+//Default URL : http://localhost:(postNumber)
+router.get("", middleware.verifyToken, postController.getDashboard);
 
-router.post('/register',userController.register);
+//hit the function when user hit the url
+router.get("/register", userController.getRegister);
 
-router.get('/login',userController.getLogin);
+//when user click submit button
+router.post("/register", userController.register);
 
-router.post('/login', userController.login);
+//hit the function when user hit the url
+router.get("/login",userController.getLogin);
 
-router.get('/dash', middleware.verifyToken, postController.getDashboard);
+//if registered user hit this function
+router.post("/login", userController.login);
 
-router.post('/post',  middleware.verifyToken, postController.addPost);
+//that is home page welcome @username is displayed
+router.get("/dash", middleware.verifyToken, postController.getDashboard);
 
-router.get('/post', middleware.verifyToken, postController.getaddPost);
+router.post("/post", middleware.verifyToken, postController.addPost);
 
-module.exports =  router;
+//for viewing the added post by the logged user
+router.get("/viewPost", middleware.verifyToken, postController.getPost);
+
+//when user want to add post by html
+router.get("/post", middleware.verifyToken, postController.getaddPost);
+
+
+//like 
+router.post('/like', middleware.verifyToken, postController.getLikes);
+
+//that clear the login cookies
+router.get("/logout", userController.logout);
+
+
+module.exports = router;
