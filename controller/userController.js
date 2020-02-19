@@ -6,13 +6,13 @@ exports.getRegister = function(req, res) {
   res.render("register");
 };
 
-exports.register = function(req, res) {
+exports.register = async function(req, res) {
   try {
     const createUser = new User(req.body);
-    createUser.save();
+    await createUser.save();
     const token = jwt.sign(req.body, config.secret);
-    res.cookie("token", token, { httpOnly: true });
-    return res.redirect("/dash");
+    res.cookie("token", token, { httpOnly: true })
+    res.redirect("/dash");
   } catch (error) {
     return res.send({ message: error.message });
   }
@@ -26,13 +26,12 @@ exports.login = async function(req, res) {
   User.findOne({ email: req.body.uemail, password: req.body.psw }, function(err,User) {
     if (err) return res.status(500).send("Error on the server.");
     if (!User) {
-      req.flash("error", "User does not exists!");
       return res.redirect("/login");
     }
     const token = jwt.sign( 
       { id: User.id, role: User.role, name: User.name },
-      config.secret
-    );
+        config.secret
+     );
     res.cookie("token", token);
     res.redirect("/dash");
   });

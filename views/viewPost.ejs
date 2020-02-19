@@ -10,40 +10,62 @@
     <link
       rel="stylesheet"
       href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.10.2/css/all.min.css"/>
-
-<style>
-  .heart i.fa-heart {
-    color: #f44336;
-  } 
-  .heart{
-    animation: heart 0.5s linear; 
-  }
-  @keyframes heart {
-  0%{
-    transform: rotate(0deg) scale(1.7);
-  }
-}
+      <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+      <script>
+      $(document).ready(function(){
+      $(".like").click(function(){
+      $(this).toggleClass("heart")
+      })
+      })
+      </script>
+      
+    <style>
+      .heart i.fa-heart {
+      color: #f44336;
+    }  
+      .heart{
+       animation: heart 0.5s linear; 
+    }
+    @keyframes heart {
+      0%{
+        transform: rotate(0deg) scale(1.7);
+      }
+    }
 </style>
+
 </head>
 <body>
 <%- include ('navbar.ejs') %>
 <br />
-<br>
-<br>
+
 <% if(post.length) { %>
 <div class="container">
 <% for(let i= 0; i < post.length; i++) {%>
 <div class="card" class="container-fluid">
-<h4 class="card-header"><%= post[i].title %></h4>
+  <h4 class="card-header"><%= post[i].title %></h4>
 <div class="card-body">
-<h5 class="card-title"> <%= post[i].content %></h5>
+  <h5 class="card-title"> <%= post[i].content %></h5>
 <br>
-<a href="#" class="like " >
-<i class="fa fa-heart heartColor"
- aria-hidden="true"></i>
-</a>
+
+<form action="/like" method="POST">
+  <input type="hidden" name="postid" value="<%= post[i]._id%>">
+  <% let flag = 0;like.some((ele) => {
+    flag = 1;
+    if(ele._id === like.postid) {%>
+      <button type="submit" name="like" value="1">
+        <i class="fa fa-heart likeheartColor" aria-hidden="true"></i>
+      </button>    
+     <%flag =0;} else {%>
+      <button type="submit" name="dislike" value="0">
+      <i class="fa fa-heart heartColor"  aria-hidden="true"></i>
+      </button>
+     <%}});%>
+     <button type="submit" name="dislike" value="0">
+      <i class="fa fa-heart heartColor" aria-hidden="true"></i>
+      </button>
 </div>
 </div>
+</form>
 </br>
 <% }%>
 </br>
@@ -55,14 +77,6 @@
 <% } %>
 </div>
 
-<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
-<script>
-$(document).ready(function(){
-$(".like").click(function(){
-$(this).toggleClass("heart")
-})
-})
-</script>
 
 </body>
 </html>
